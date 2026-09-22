@@ -108,7 +108,15 @@ body {
   .nav {
     position: absolute;
     top: 100%;
+    left: 0;
     right: 0;
+    background: #fff;
+  }
+
+  .nav a {
+    display: block;
+    padding: 16px;
+    border-bottom: 1px solid #e5e5e5;
   }
 }
 
