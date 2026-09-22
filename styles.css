@@ -1,8 +1,12 @@
+* {
+  box-sizing: border-box;
+}
 
-
-* { box-sizing: border-box; }
-
-html, body { margin: 0; padding: 0; }
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: system-ui, sans-serif;
@@ -12,7 +16,7 @@ body {
 
 .site-header {
   position: relative;
-  display: flex;             
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -37,7 +41,7 @@ body {
 
 /* Hamburger button exists in the DOM but is hidden */
 .hamburger {
-  display: none;              
+  display: none;
   width: 28px;
   height: 24px;
   cursor: pointer;
@@ -79,18 +83,44 @@ body {
 @media (max-width: 720px) {
 
   /* GUIDE 1: hide the horizontal nav by default on small screens */
+  .nav {
+    display: none;
+  }
 
   /* GUIDE 2: show the hamburger on small screens */
+  .hamburger {
+    display: block;
+  }
 
   /* GUIDE 3: reveal nav when toggled (use ~ combinator) */
+  .menu-toggle:checked~.nav {
+    display: flex;
+  }
 
   /* GUIDE 4: style nav as vertical panel */
-  /* 4-1) How the link inside of nav should be displayed? */  
+  /* 4-1) How the link inside of nav should be displayed? */
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
   /* 4-2) Where the nav should be positioned? */
-   
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+  }
 }
+
 /* (Optional) X animation */
-#menu-toggle:checked + .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-#menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
-#menu-toggle:checked + .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+#menu-toggle:checked+.hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#menu-toggle:checked+.hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked+.hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
